@@ -12,6 +12,8 @@
 		BC8CBFDA2AF087A5002538D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CBFD92AF087A5002538D7 /* ViewController.swift */; };
 		BC8CBFDF2AF087A6002538D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8CBFDE2AF087A6002538D7 /* Assets.xcassets */; };
 		BC8CBFE22AF087A6002538D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8CBFE02AF087A6002538D7 /* LaunchScreen.storyboard */; };
+		BC9050FC2AFB0593005253ED /* HourlyForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9050FB2AFB0593005253ED /* HourlyForecastCollectionViewCell.swift */; };
+		BC9051012AFB0D20005253ED /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9051002AFB0D20005253ED /* Color+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		BC8CBFDE2AF087A6002538D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC8CBFE12AF087A6002538D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC8CBFE32AF087A6002538D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC9050FB2AFB0593005253ED /* HourlyForecastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastCollectionViewCell.swift; sourceTree = "<group>"; };
+		BC9051002AFB0D20005253ED /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				BC8CBFD52AF087A5002538D7 /* AppDelegate.swift */,
 				BC8CBFD72AF087A5002538D7 /* SceneDelegate.swift */,
 				BC8CBFD92AF087A5002538D7 /* ViewController.swift */,
+				BC9050FB2AFB0593005253ED /* HourlyForecastCollectionViewCell.swift */,
+				BC9051002AFB0D20005253ED /* Color+Extensions.swift */,
 				BC8CBFDE2AF087A6002538D7 /* Assets.xcassets */,
 				BC8CBFE02AF087A6002538D7 /* LaunchScreen.storyboard */,
 				BC8CBFE32AF087A6002538D7 /* Info.plist */,
@@ -96,6 +102,7 @@
 				TargetAttributes = {
 					BC8CBFD12AF087A5002538D7 = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -134,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC9051012AFB0D20005253ED /* Color+Extensions.swift in Sources */,
 				BC8CBFDA2AF087A5002538D7 /* ViewController.swift in Sources */,
 				BC8CBFD62AF087A5002538D7 /* AppDelegate.swift in Sources */,
+				BC9050FC2AFB0593005253ED /* HourlyForecastCollectionViewCell.swift in Sources */,
 				BC8CBFD82AF087A5002538D7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +287,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8CG8Z7396P;
@@ -295,6 +305,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ramonxm.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -305,6 +316,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8CG8Z7396P;
