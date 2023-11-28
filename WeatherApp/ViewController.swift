@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+
     private lazy var backgroundView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Background")
@@ -31,7 +33,6 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "Rio de Janeiro"
         label.textColor = .primaryColor
         label.textAlignment = .center
         
@@ -42,7 +43,6 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 70, weight: .bold)
-        label.text = "25°C"
         label.textColor = .primaryColor
         label.textAlignment = .left
         
@@ -71,7 +71,6 @@ class ViewController: UIViewController {
     private lazy var windValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "10km/h"
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         label.textColor = .white
         
@@ -100,7 +99,6 @@ class ViewController: UIViewController {
     private lazy var humidityValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "1000mm"
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         label.textColor = .white
         
@@ -175,11 +173,43 @@ class ViewController: UIViewController {
         return collectionView
     }()
     
+    private let service = Service()
+    private var city = City(lat: "-23.6814346", lon: "-46.9249599", name: "São Paulo")
+    private var forecastResponse: ForecastResponse?
+    
+    
+    private func fetchData() {
+           service.fetchData(city: city) { [weak self] response in
+               self?.forecastResponse = response
+               DispatchQueue.main.async {
+                   self?.loadData()
+               }
+           }
+       }
+       
+       private func loadData() {
+           cityLabel.text = city.name
+           
+           temperatureLabel.text = forecastResponse?.current.temp.toCelsius()
+           humidityValueLabel.text = "\(forecastResponse?.current.humidity ?? 0)mm"
+           windValueLabel.text = "\(forecastResponse?.current.windSpeed ?? 0)km/h"
+           weatherIcon.image = UIImage(named: forecastResponse?.current.weather.first?.icon ?? "")
+           
+           
+           if forecastResponse?.current.dt.isDayTime() ?? true {
+               backgroundView.image = UIImage(named:"background-day")
+           } else {
+               backgroundView.image = UIImage(named: "background-night")
+           }
+           
+           hourlyCollectionView.reloadData()
+           dailyForecastTableView.reloadData()
+       }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
+        fetchData()
     }
 
     private func setHierarchy() {
